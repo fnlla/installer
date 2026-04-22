@@ -38,3 +38,8 @@ fnlla new my-app --force
 
 - `fnlla/fnlla` remains the canonical starter template.
 - Installer focuses on DX and consistent bootstrap defaults.
+
+## Release
+
+- Changelog: `CHANGELOG.md`
+- Manual release workflow: `.github/workflows/release.yml`

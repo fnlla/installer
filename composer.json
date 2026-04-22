@@ -1,0 +1,22 @@
+{
+    "name": "fnlla/installer",
+    "description": "Official Fnlla installer CLI for bootstrapping new applications",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.2"
+    },
+    "bin": [
+        "bin/fnlla"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Fnlla\\Installer\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    }
+}

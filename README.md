@@ -7,12 +7,11 @@ Official installer CLI for bootstrapping Fnlla applications.
 ## Install
 
 ```bash
-composer global config repositories.fnlla-installer vcs https://github.com/fnlla/installer
-composer global require fnlla/installer:dev-main
+composer global require fnlla/installer
 ```
 
 Ensure Composer global `vendor/bin` is in your `PATH`.
-Packagist publication can be added later for direct `composer global require fnlla/installer`.
+For bleeding-edge development you can still install `dev-main` from VCS.
 
 ## Usage
 
@@ -38,6 +37,7 @@ fnlla new my-app --force
 
 - `fnlla/fnlla` remains the canonical starter template.
 - Installer focuses on DX and consistent bootstrap defaults.
+- Packagist auto-update is driven by GitHub webhook (`https://packagist.org/api/github`) with workflow fallback in `.github/workflows/packagist-fallback-update.yml`.
 
 ## Release
 

@@ -1,0 +1,29 @@
+name: Packagist Fallback Update
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  notify-packagist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Skip when Packagist secrets are not configured
+        if: ${{ secrets.PACKAGIST_USERNAME == '' || secrets.PACKAGIST_API_TOKEN == '' }}
+        run: echo "PACKAGIST_USERNAME/PACKAGIST_API_TOKEN not set. Skipping fallback update."
+
+      - name: Trigger Packagist update
+        if: ${{ secrets.PACKAGIST_USERNAME != '' && secrets.PACKAGIST_API_TOKEN != '' }}
+        shell: bash
+        env:
+          PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
+          PACKAGIST_API_TOKEN: ${{ secrets.PACKAGIST_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          payload=$(printf '{"username":"%s","apiToken":"%s"}' "$PACKAGIST_USERNAME" "$PACKAGIST_API_TOKEN")
+          curl -fsS -X POST \
+            -H "Content-Type: application/json" \
+            -d "$payload" \
+            "https://packagist.org/api/update-package?package=fnlla/installer"

@@ -6,6 +6,15 @@ The format follows Keep a Changelog and semantic versioning.
 
 ## [Unreleased]
 
+## [v1.0.1] - 2026-04-24
+
+### Changed
+
+- Hardened GitHub Actions permissions and baseline security posture.
+- Updated CodeQL workflow wiring and matrix compatibility.
+- Added/updated Packagist fallback automation for resilient package refresh.
+- Added repository synchronization workflow for community health maintenance.
+
 ## [v1.0.0] - 2026-04-22
 
 ### Added
